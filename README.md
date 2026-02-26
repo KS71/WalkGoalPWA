@@ -6,12 +6,22 @@ En moderne, lynhurtig og brugervenlig Android-app (.apk) designet til at hjælpe
 
 ## 📸 Skærmbilleder
 
-*(Her kan vi indsætte skærmbilleder, når de er taget. Gem dine billeder i projektmappen og kald dem f.eks. `screenshot1.png` og `screenshot2.png`)*
-
 <div align="center">
-  <img src="screenshot1.png" width="300" alt="Dashboard Oversigt" />
+  <img src="001.jpg" width="300" alt="Dashboard" />
   &nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="screenshot2.png" width="300" alt="Log Gåtur" />
+  <img src="002.jpg" width="300" alt="Log Gåtur" />
+</div>
+<br />
+<div align="center">
+  <img src="003.jpg" width="300" alt="Historik" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="004.jpg" width="300" alt="Indstillinger" />
+</div>
+<br />
+<div align="center">
+  <img src="005.jpg" width="300" alt="Målsætning 1" />
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="006.jpg" width="300" alt="Målsætning 2" />
 </div>
 
 ---

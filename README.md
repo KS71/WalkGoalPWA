@@ -35,6 +35,12 @@ En moderne, lynhurtig og brugervenlig Android-app (.apk) designet til at hjælpe
 - **⚙️ Indstillinger:** Tilpas appen til dine behov (inkluderer versionsstyring og nem sletning af data).
 - **📱 Android App (.apk):** Bygget som en native app via Capacitor, lige til at installere på din Android-telefon.
 
+## 🔒 Data & Privatliv
+
+WalkGoal er bygget med 100% fokus på dit privatliv:
+- **Ingen Server:** Appen sender **ingen** data, logbøger eller personlige oplysninger til en server i skyen. 
+- **Dit Data Er Dit:** Alt hvad du indtaster (hvor langt du går, tidspunkter, mål osv.) bliver gemt **lokalt på din egen telefon**. Ingen andre end dig har adgang til det.
+- **Husk Backup:** Fordi dataene kun ligger på din enhed, er det **meget vigtigt**, at du løbende bruger appens indbyggede "Backup" funktion ("Eksportér Data" i indstillingerne). Hvis du mister din telefon eller sletter appen, er dine data væk, medmindre du har gemt en backup-fil!
 ## 🛠️ Teknologier
 
 Projektet er bygget med moderne webteknologier for at sikre den bedste ydeevne og oplevelse:
@@ -52,11 +58,11 @@ For at køre projektet lokalt på din egen maskine:
 
 1. **Klon projektet:**
    ```bash
-   git clone https://github.com/KS71/WalkGoalPWA.git
+   git clone https://github.com/KS71/WalkGoal.git
    ```
 2. **Gå ind i mappen:**
    ```bash
-   cd WalkGoalPWA
+   cd WalkGoal
    ```
 3. **Installer afhængigheder:**
    ```bash

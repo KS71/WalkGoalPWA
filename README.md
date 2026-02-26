@@ -1,4 +1,4 @@
-# 🚶‍♂️ WalkGoalPWA
+# 🚶‍♂️ WalkGoal
 
 En moderne, lynhurtig og brugervenlig Android-app (.apk) designet til at hjælpe dig med at tracke dine gåture, sætte personlige mål og holde styr på din aktivitetshistorik. Appen er bygget med fokus på et flot, responsivt design og en gnidningsfri brugeroplevelse på mobil.
 

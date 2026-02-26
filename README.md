@@ -1,6 +1,6 @@
 # 🚶‍♂️ WalkGoalPWA
 
-En moderne, lynhurtig og brugervenlig web-app (PWA) designet til at hjælpe dig med at tracke dine gåture, sætte personlige mål og holde styr på din aktivitetshistorik. Appen er bygget med fokus på et flot, responsivt design og en gnidningsfri brugeroplevelse.
+En moderne, lynhurtig og brugervenlig Android-app (.apk) designet til at hjælpe dig med at tracke dine gåture, sætte personlige mål og holde styr på din aktivitetshistorik. Appen er bygget med fokus på et flot, responsivt design og en gnidningsfri brugeroplevelse på mobil.
 
 ---
 
@@ -23,7 +23,7 @@ En moderne, lynhurtig og brugervenlig web-app (PWA) designet til at hjælpe dig 
 - **📝 Log Gåtur:** Nem og hurtig registrering af afstand og tid for dine seneste gåture.
 - **📅 Historik:** Dyk ned i dine data og se præcis, hvor meget du har gået de tidligere uger og måneder (nu med ugedage-visning for bedre overblik).
 - **⚙️ Indstillinger:** Tilpas appen til dine behov (inkluderer versionsstyring og nem sletning af data).
-- **📱 PWA (Progressive Web App):** Kan installeres direkte på din telefon eller computer og fungerer som en rigtig app.
+- **📱 Android App (.apk):** Bygget som en native app via Capacitor, lige til at installere på din Android-telefon.
 
 ## 🛠️ Teknologier
 
@@ -34,7 +34,7 @@ Projektet er bygget med moderne webteknologier for at sikre den bedste ydeevne o
 - **Styling:** Tailwind CSS (med skræddersyede farvetemaer)
 - **Byggeværktøj:** Vite
 - **Ikoner:** Lucide React
-- **Mobil/Native App (Fremtid):** Capacitor (Forberedt til Android/APK)
+- **Mobil/Native App:** Capacitor (Bygget til Android / APK)
 
 ## 🚀 Kom I Gang (Lokal Kørsel)
 

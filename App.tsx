@@ -97,10 +97,14 @@ const App: React.FC = () => {
     let logDate = new Date().toISOString();
 
     if (dateString) {
-      const now = new Date();
-      const selectedDate = new Date(dateString);
-      selectedDate.setHours(now.getHours(), now.getMinutes(), now.getSeconds());
-      logDate = selectedDate.toISOString();
+      if (dateString.includes('T')) {
+        logDate = dateString;
+      } else {
+        const now = new Date();
+        const selectedDate = new Date(dateString);
+        selectedDate.setHours(now.getHours(), now.getMinutes(), now.getSeconds());
+        logDate = selectedDate.toISOString();
+      }
     }
 
     const newLog: WalkLog = {
@@ -275,6 +279,7 @@ const App: React.FC = () => {
             units={state.preferences.units}
             currentView={view}
             onChangeView={setView}
+            timeFormat={state.preferences.timeFormat || '24h'}
           />
         )}
 

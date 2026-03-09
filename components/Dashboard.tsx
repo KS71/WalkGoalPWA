@@ -132,13 +132,22 @@ const Dashboard: React.FC<DashboardProps> = ({ state, setView, setPeriod, units,
                             </div>
                         </div>
                     </div>
-                    <div className="flex justify-between items-center bg-white border-2 border-black p-1.5 shadow-hard-sm mt-1">
-                        <span className="font-bold text-[9px] uppercase text-black">Progress</span>
-                        <span className="font-black text-sm text-black">{Math.round(progressPercent)}%</span>
-                    </div>
+                    {progressPercent >= 100 ? (
+                        <div className="flex justify-center items-center bg-accent-pink border-2 border-black p-1.5 shadow-hard-sm mt-1 relative overflow-hidden">
+                            <div className="absolute inset-0 opacity-15" style={{ backgroundImage: 'repeating-linear-gradient(45deg, #000 0, #000 2px, transparent 2px, transparent 8px)' }}></div>
+                            <span className="font-black text-[11px] uppercase text-black z-10 tracking-widest flex items-center gap-1.5 animate-pulse">
+                                🏆 GOAL REACHED! 🎉
+                            </span>
+                        </div>
+                    ) : (
+                        <div className="flex justify-between items-center bg-white border-2 border-black p-1.5 shadow-hard-sm mt-1">
+                            <span className="font-bold text-[9px] uppercase text-black">Progress</span>
+                            <span className="font-black text-sm text-black">{Math.round(progressPercent)}%</span>
+                        </div>
+                    )}
                     {/* Progress Bar */}
                     <div className="mt-1.5 h-3 w-full border-2 border-black bg-white p-0.5">
-                        <div className="h-full bg-accent-pink" style={{ width: `${progressPercent}%` }}></div>
+                        <div className="h-full bg-accent-pink" style={{ width: `${Math.min(100, progressPercent)}%` }}></div>
                     </div>
                 </div>
 

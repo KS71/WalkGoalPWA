@@ -81,6 +81,10 @@ To run the project locally on your own machine:
 
 The app is continuously updated.
 
+**v2.1.3:**
+- Added the ability to manually select the time of the walk instead of defaulting to 'Now'.
+- Implemented a festive "Goal Reached" graphic when progress reaches 100% or more.
+
 **v2.1.1:**
 - Added Settings navigation to sub-headers (Log Walk, Goal Setup, History).
 - Added Last Backup date display with 12h/24h format support in Settings.

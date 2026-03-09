@@ -10,23 +10,34 @@ interface LogWalkProps {
   units: 'km' | 'mi';
   currentView: View;
   onChangeView: (view: View) => void;
+  timeFormat: '12h' | '24h';
 }
 
-const LogWalk: React.FC<LogWalkProps> = ({ onCancel, onSave, units, currentView, onChangeView }) => {
+const LogWalk: React.FC<LogWalkProps> = ({ onCancel, onSave, units, currentView, onChangeView, timeFormat }) => {
   const [distance, setDistance] = useState<string>('');
   const dateInputRef = useRef<HTMLInputElement>(null);
+  const timeInputRef = useRef<HTMLInputElement>(null);
 
   // Initialize with today's date in YYYY-MM-DD format for the input
   const today = new Date();
   const todayStr = today.toISOString().split('T')[0];
   const [date, setDate] = useState<string>(todayStr);
 
+  // Initialize time in HH:mm format
+  const nowTimeStr = `${String(today.getHours()).padStart(2, '0')}:${String(today.getMinutes()).padStart(2, '0')}`;
+  const [time, setTime] = useState<string>(nowTimeStr);
+
   const handleSave = () => {
     const val = parseFloat(distance);
     if (!isNaN(val) && val > 0) {
       // Convert input (which is in current units) to KM for storage
       const valInKm = toStorageDistance(val, units);
-      onSave(valInKm, date);
+
+      const [year, month, day] = date.split('-').map(Number);
+      const [hours, minutes] = time.split(':').map(Number);
+      const finalDate = new Date(year, month - 1, day, hours, minutes);
+
+      onSave(valInKm, finalDate.toISOString());
     }
   };
 
@@ -49,6 +60,23 @@ const LogWalk: React.FC<LogWalkProps> = ({ onCancel, onSave, units, currentView,
         dateInputRef.current.focus();
       }
     }
+  };
+
+  const openTimePicker = () => {
+    if (timeInputRef.current) {
+      if ('showPicker' in timeInputRef.current) {
+        (timeInputRef.current as any).showPicker();
+      } else {
+        timeInputRef.current.focus();
+      }
+    }
+  };
+
+  const getDisplayTime = () => {
+    const [hours, minutes] = time.split(':').map(Number);
+    const d = new Date();
+    d.setHours(hours, minutes);
+    return d.toLocaleTimeString(timeFormat === '24h' ? 'en-GB' : 'en-US', { hour: '2-digit', minute: '2-digit', hour12: timeFormat === '12h' });
   };
 
   const unitLabel = getUnitLabel(units);
@@ -114,20 +142,31 @@ const LogWalk: React.FC<LogWalkProps> = ({ onCancel, onSave, units, currentView,
           />
         </div>
 
-        {/* Time Selector (Visual only for now, defaults to current time) */}
-        <div className="w-full max-w-sm">
-          <button className="w-full bg-white border-[3px] border-black shadow-hard rounded-none p-4 flex items-center justify-between group active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-default">
+        {/* Time Selector */}
+        <div className="w-full max-w-sm relative">
+          <button
+            onClick={openTimePicker}
+            className="w-full bg-white border-[3px] border-black shadow-hard rounded-none p-4 flex items-center justify-between group active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
+          >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 bg-accent-pink border-2 border-black rounded-none flex items-center justify-center shadow-hard-sm group-hover:bg-primary transition-colors">
                 <Clock size={24} className="text-black" strokeWidth={2.5} />
               </div>
               <div className="text-left">
                 <p className="text-xs font-bold text-black uppercase tracking-widest mb-1">Time</p>
-                <p className="text-lg font-bold text-black">Now</p>
+                <p className="text-lg font-bold text-black">{getDisplayTime()}</p>
               </div>
             </div>
-            {/* <ChevronRight size={32} className="text-black" /> */}
+            <ChevronRight size={32} className="text-black" strokeWidth={2.5} />
           </button>
+          <input
+            ref={timeInputRef}
+            type="time"
+            value={time}
+            onChange={(e) => setTime(e.target.value)}
+            className="absolute inset-0 w-full h-full opacity-0 z-20 cursor-pointer"
+            tabIndex={-1}
+          />
         </div>
 
         {/* Add to Goal Button - Inline with extra bottom margin */}
